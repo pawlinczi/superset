@@ -2,13 +2,13 @@ services:
   - type: web
     name: superset
     env: docker
-    repo: https://github.com/apache/superset # Upewnij się, że to link do Twojego forka
+    repo: https://github.com/pawlinczi/superset # Upewnij się, że to link do Twojego forka
     plan: free # Użycie darmowego planu
     healthCheckPath: /health
     envVars:
       - key: SQLALCHEMY_DATABASE_URI
         fromDatabase:
-          name: superset-db # Upewnij się, że to nazwa Twojej bazy danych w Render
+          name: superset-metadata # Upewnij się, że to nazwa Twojej bazy danych w Render
           property: connectionString
       - key: SUPERSET_SECRET_KEY
         generateValue: true # Render automatycznie wygeneruje bezpieczny klucz
